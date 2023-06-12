@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://redhatstatic.com/dx/v1-alpha/@rhds/elements@1.0.1/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+</head>
+
+<body>
+  <div data-analytics-region="secondary-navigation">
+  <rh-navigation-secondary role="navigation" data-analytics-event-map="overlay-change:click" data-analytics-data-map="overlay-change:open">
+    <a href="#" slot="logo" id="logo-id">
+      Logo/Title
+    </a>
+    <ul slot="nav" aria-labelledby="logo-id">
+      <li>
+        <rh-navigation-secondary-dropdown>
+          <a href="#dropdown-fallback-url" slot="link">Dropdown</a>
+          <rh-navigation-secondary-menu slot="menu">
+            <rh-navigation-secondary-menu-section>
+              <h3 slot="header">Section</h3>
+              <ul slot="links">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+              </ul>
+              <rh-cta slot="cta">
+                <a href="#">Section CTA</a>
+              </rh-cta>
+            </rh-navigation-secondary-menu-section>
+            <rh-navigation-secondary-menu-section>
+              <h3 slot="header">Section</h3>
+              <ul slot="links">
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+              </ul>
+              <rh-cta slot="cta">
+                <a href="#">Section CTA</a>
+              </rh-cta>
+            </rh-navigation-secondary-menu-section>
+          </rh-navigation-secondary-menu>
+        </rh-navigation-secondary-dropdown>
+      </li>
+      <li>
+        <rh-navigation-secondary-dropdown>
+          <a href="#dropdown-fallback-url" slot="link">Dropdown</a>
+          <rh-navigation-secondary-menu slot="menu">
+            <ul>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </rh-navigation-secondary-menu>
+        </rh-navigation-secondary-dropdown>
+      </li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+    <rh-cta slot="cta">
+      <a href="#">Call to Action</a>
+    </rh-cta>
+  </rh-navigation-secondary>
+
+  <rh-context-provider color-palette="lightest">
+    <div class="space-holder">
+      <h2>Content Placeholder</h2>
+      <a href="#">Link placeholder</a>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt luctus odio, vitae accumsan tortor
+        sagittis et. Integer facilisis rutrum suscipit. Morbi elementum purus vel varius tincidunt. Nulla fringilla
+        lacus a nulla vehicula tincidunt. Praesent a turpis et elit laoreet ullamcorper et et metus. Praesent malesuada
+        massa in tellus bibendum congue. Curabitur mollis purus et metus eleifend sagittis. Vivamus fringilla tincidunt
+        sem id euismod. Maecenas a vestibulum nisl. Sed libero metus, ultrices in tortor facilisis, semper rhoncus nunc.
+        Nullam ut diam et felis posuere lobortis vitae id leo. Sed hendrerit ex libero, a faucibus tellus maximus et.
+        Aliquam erat volutpat. Phasellus vestibulum a lacus eget eleifend. Pellentesque ipsum nunc, scelerisque non
+        neque id, bibendum vestibulum ante.</p>
+      <p>Maecenas venenatis sollicitudin leo, vitae tincidunt lectus dapibus vel. Integer quis sapien dui. Nulla
+        sagittis dapibus suscipit. Pellentesque consequat dapibus lorem id feugiat. Fusce ornare sapien at lacus porta
+        maximus. Praesent gravida faucibus tellus et lobortis. Praesent ullamcorper facilisis semper. Praesent lobortis
+        enim lacus, ut facilisis ex tristique in. Sed lobortis tortor ut sem lacinia pharetra. Nunc a varius risus.
+        Proin volutpat eget justo quis fermentum. Nunc quis vestibulum ipsum. Donec vulputate laoreet sapien id mattis.
+        Phasellus non enim laoreet, euismod mauris vel, vulputate est.</p>
+      <p>Vivamus porta massa at nulla eleifend, a pellentesque eros dictum. Nam finibus nibh purus, in placerat nulla
+        elementum at. Integer quis est condimentum, tempor mi ac, dapibus ante. Pellentesque fringilla hendrerit est, ut
+        ultricies orci condimentum viverra. Aliquam a lacus consequat dolor vestibulum euismod eget quis ipsum.
+        Pellentesque viverra, libero sed euismod consectetur, turpis nulla tristique massa, vel ultricies massa arcu sit
+        amet mauris. Donec aliquet tortor ante, ut pulvinar odio gravida et. Proin laoreet et elit at tempus. In aliquam
+        erat lacus, in volutpat neque faucibus a.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt luctus odio, vitae accumsan tortor
+        sagittis et. Integer facilisis rutrum suscipit. Morbi elementum purus vel varius tincidunt. Nulla fringilla
+        lacus a nulla vehicula tincidunt. Praesent a turpis et elit laoreet ullamcorper et et metus. Praesent malesuada
+        massa in tellus bibendum congue. Curabitur mollis purus et metus eleifend sagittis. Vivamus fringilla tincidunt
+        sem id euismod. Maecenas a vestibulum nisl. Sed libero metus, ultrices in tortor facilisis, semper rhoncus nunc.
+        Nullam ut diam et felis posuere lobortis vitae id leo. Sed hendrerit ex libero, a faucibus tellus maximus et.
+        Aliquam erat volutpat. Phasellus vestibulum a lacus eget eleifend. Pellentesque ipsum nunc, scelerisque non
+        neque id, bibendum vestibulum ante.</p>
+      <p>Maecenas venenatis sollicitudin leo, vitae tincidunt lectus dapibus vel. Integer quis sapien dui. Nulla
+        sagittis dapibus suscipit. Pellentesque consequat dapibus lorem id feugiat. Fusce ornare sapien at lacus porta
+        maximus. Praesent gravida faucibus tellus et lobortis. Praesent ullamcorper facilisis semper. Praesent lobortis
+        enim lacus, ut facilisis ex tristique in. Sed lobortis tortor ut sem lacinia pharetra. Nunc a varius risus.
+        Proin volutpat eget justo quis fermentum. Nunc quis vestibulum ipsum. Donec vulputate laoreet sapien id mattis.
+        Phasellus non enim laoreet, euismod mauris vel, vulputate est.</p>
+      <p>Vivamus porta massa at nulla eleifend, a pellentesque eros dictum. Nam finibus nibh purus, in placerat nulla
+        elementum at. Integer quis est condimentum, tempor mi ac, dapibus ante. Pellentesque fringilla hendrerit est, ut
+        ultricies orci condimentum viverra. Aliquam a lacus consequat dolor vestibulum euismod eget quis ipsum.
+        Pellentesque viverra, libero sed euismod consectetur, turpis nulla tristique massa, vel ultricies massa arcu sit
+        amet mauris. Donec aliquet tortor ante, ut pulvinar odio gravida et. Proin laoreet et elit at tempus. In aliquam
+        erat lacus, in volutpat neque faucibus a.</p>
+    </div>
+  </rh-context-provider>
+  <!--
+    JSPM Generator Import Map
+    Edit URL: https://generator.jspm.io/#U2VhYGBkDM0rySzJSU1hcCjKSCnWT81JzU3NKyl2MNQz0DMEAKUb+tgjAA
+  -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@rhds/elements": "https://ga.jspm.io/npm:@rhds/elements@1.0.1/rhds.min.js"
+    }
+  }
+  </script>
+  <!-- ES Module Shims: Import maps polyfill for olrder browsers without import maps support (eg Safari 16.3) -->
+  <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js"
+    crossorigin="anonymous"></script>
+
+  <body>
+    <script type="module">
+      import * as Elements from "@rhds/elements";
+    </script>
+    <script type="module" src="scripts.js"></script>
+  </body>
+
+</html>
