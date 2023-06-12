@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  margin: 0;
+}
+
+#log {
+  --_padding: 1rem;
+  width: 100%;
+  color: white;
+  flex: 1 1 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.log__wrapper {
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+  white-space: pre-wrap;
+  background: black;
+  overflow-y: scroll;
+  color: white;
+  padding: 1em;
+  margin-top: -50px;
+}
