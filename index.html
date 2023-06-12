@@ -12,8 +12,7 @@
 
 <body>
   <div data-analytics-region="secondary-navigation">
-    <rh-navigation-secondary role="navigation" data-analytics-event-map="overlay-change:click"
-      data-analytics-data-map="overlay-change:open">
+    <rh-navigation-secondary role="navigation" data-analytics-event-map="overlay-change:click" data-analytics-data-map="overlay-change:open">
       <a href="#" slot="logo" id="logo-id">
         Logo/Title
       </a>
@@ -130,7 +129,24 @@
     <script type="module">
       import * as Elements from "@rhds/elements";
     </script>
-    <script type="module" src="scripts.js"></script>
+    <script>
+    </script>
+    <script type="module">
+      import {EddlManager} from './js/eddlEvents.js';
+      import { jsonReplacer } from './js/utils.js';
+
+      const eddlManager = new EddlManager();
+      // add event listeners to the window
+      eddlManager.initializeEventListener('overlay-change');
+      eddlManager.addEventListener('log', e => {
+        console.log(e.detail)
+        const pre = document.querySelector('#log pre');
+        pre.insertAdjacentHTML('afterbegin', `
+${JSON.stringify(e.detail, jsonReplacer, ' ')}
+`)
+      });
+
+    </script>
   </body>
 
 </html>
