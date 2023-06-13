@@ -19,7 +19,7 @@
       <ul slot="nav" aria-labelledby="logo-id">
         <li>
           <rh-navigation-secondary-dropdown>
-            <a href="#dropdown-fallback-url" slot="link">Dropdown</a>
+            <a href="#dropdown-fallback-url" slot="link" data-analytics-linktype="dropdown">Dropdown</a>
             <rh-navigation-secondary-menu slot="menu">
               <rh-navigation-secondary-menu-section>
                 <h3 slot="header">Section</h3>
@@ -40,7 +40,7 @@
                   <li><a href="#">Link</a></li>
                 </ul>
                 <rh-cta slot="cta">
-                  <a data-analytics-type="cta" href="#">Section CTA</a>
+                  <a data-analytics-linktype="cta" href="#">Section CTA</a>
                 </rh-cta>
               </rh-navigation-secondary-menu-section>
             </rh-navigation-secondary-menu>
@@ -69,6 +69,8 @@
       </rh-cta>
     </rh-navigation-secondary>
 
+  </div>
+  <div data-analytics-region="main">
     <rh-context-provider color-palette="lightest">
       <div class="space-holder">
         <h2>Content Placeholder</h2>
@@ -139,12 +141,12 @@
       const eddlManager = new EddlManager();
       // add event listeners to the window
       eddlManager.addEventListener('log', e => {
+        console.log(e.detail);
         const pre = document.querySelector('#log pre');
         pre.insertAdjacentHTML('afterbegin', `
 ${JSON.stringify(e.detail, jsonReplacer, ' ')}
 `)
       });
-
     </script>
   </body>
 

@@ -29,18 +29,11 @@ export class EddlManager extends EventTarget {
     // if there is already an event of this type in the queue then we'll debounce it.
     if (this._messageQueue.has(e.type)) return;
 
-    const attributes = extractAnalyticAttributesFromEvent(e);
-    let type = e.type;
-
-    // let's re-map this event as a new type of event
-    if (attributes.has('data-analytics-event-map')) {
-      const [eventSource, eventMap] = attributes.get('data-analytics-event-map').split(':') ?? [];
-      if (e.type === eventSource) {
-        type = eventMap;
-      }
-    }
-
-    this._messageQueue.set(type, { type: e.type, tagName: e.target.tagName, attributes });
+    this._messageQueue.set(e.type, {
+      type: e.type,
+      tagName: e.target.tagName,
+      attributes: extractAnalyticAttributesFromEvent(e)
+    });
 
     // using requestAnimationFrame allows DOM events to bulk collect
     // so that we can dudupe the click events from the delarative data-analytics-event-map
@@ -48,9 +41,22 @@ export class EddlManager extends EventTarget {
     requestAnimationFrame(() => {
       if (this._messageQueue.size > 0) {
         // pull current queue
-        const queue = this._messageQueue.entries();
+        const queue = new Map(this._messageQueue);
         // create a fresh queue
         this._messageQueue = new Map();
+
+        // const mappedEvents = new Map();
+        for (const [_, data] of queue) {
+          const [sourceEvent, mappedEvent] = data.attributes?.get?.('data-analytics-event-map')?.split(':') ?? [];
+          if (sourceEvent) {
+            const mappedEventData = queue.get(mappedEvent);
+            // merge the source event data with the mapped event data
+            queue.set(mappedEvent, { ...mappedEventData, attributes: new Map([...mappedEventData.attributes, ...data.attributes])});
+            // delete the original event
+            queue.delete(sourceEvent);
+          }
+        }
+
         for (let [_, item] of queue) {
           this.dispatchEvent(new CustomEvent('log', {
             detail: {
