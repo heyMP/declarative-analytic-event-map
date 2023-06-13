@@ -1,6 +1,6 @@
 # Declarative Data Analytics
 
-![](/assets/diagram.svg);
+![](/assets/diagram.svg)
 
 Traditional data analytics are collected by adding data attributes to
 call to links with information about what type of user interaction should
