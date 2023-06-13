@@ -1,5 +1,9 @@
 # Declarative Data Analytics
 
+[Demo](https://declarative-analytic-event-map.vercel.app/)
+
+## Diagram
+
 ![](/assets/diagram.svg)
 
 ## Background
