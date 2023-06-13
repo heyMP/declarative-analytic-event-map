@@ -40,7 +40,7 @@
                   <li><a href="#">Link</a></li>
                 </ul>
                 <rh-cta slot="cta">
-                  <a href="#">Section CTA</a>
+                  <a data-analytics-type="cta" href="#">Section CTA</a>
                 </rh-cta>
               </rh-navigation-secondary-menu-section>
             </rh-navigation-secondary-menu>
@@ -65,7 +65,7 @@
         <li><a href="#">Link</a></li>
       </ul>
       <rh-cta slot="cta">
-        <a href="#">Call to Action</a>
+        <a data-analytics-linktype="cta" data-analytics-text="Call to Action" href="#">Call to Action</a>
       </rh-cta>
     </rh-navigation-secondary>
 
@@ -106,6 +106,7 @@
   </div>
 
   <div id="log">
+    <h2 class="log__title">Console</h2>
     <div class="log__wrapper">
       <pre></pre>
     </div>
@@ -137,9 +138,7 @@
 
       const eddlManager = new EddlManager();
       // add event listeners to the window
-      eddlManager.initializeEventListener('overlay-change');
       eddlManager.addEventListener('log', e => {
-        console.log(e.detail)
         const pre = document.querySelector('#log pre');
         pre.insertAdjacentHTML('afterbegin', `
 ${JSON.stringify(e.detail, jsonReplacer, ' ')}

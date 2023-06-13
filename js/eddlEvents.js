@@ -5,10 +5,20 @@ export class EddlManager extends EventTarget {
     this._messageQueue = new Map();
     this._listners = new Set();
     this._eventListnerHandler = this.eddlEventHandler.bind(this);
-    this.initializeEventListener('click');
+    this.registerEventListener('click');
+    this.scanEventMaps();
   }
 
-  initializeEventListener(eventname) {
+  scanEventMaps() {
+    for (const eventmap of document.querySelectorAll('[data-analytics-event-map]')) {
+      const [eventname] = eventmap.getAttribute('data-analytics-event-map')?.split?.(':') ?? [];
+      if (eventname) {
+        this.registerEventListener(eventname);
+      }
+    }
+  }
+
+  registerEventListener(eventname) {
     if (!this._listners.has(eventname)) {
       document.addEventListener(eventname, this._eventListnerHandler);
       this._listners.add(eventname);
