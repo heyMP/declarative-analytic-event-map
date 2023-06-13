@@ -135,12 +135,12 @@
     <script>
     </script>
     <script type="module">
-      import {EddlManager} from './js/eddlEvents.js';
+      import { AnalyticsManager } from './js/AnalyticsManager.js';
       import { jsonReplacer } from './js/utils.js';
 
-      const eddlManager = new EddlManager();
+      const analyticsManager = new AnalyticsManager();
       // add event listeners to the window
-      eddlManager.addEventListener('log', e => {
+      analyticsManager.addEventListener('log', e => {
         console.log(e.detail);
         const pre = document.querySelector('#log pre');
         pre.insertAdjacentHTML('afterbegin', `

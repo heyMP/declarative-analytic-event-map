@@ -1,10 +1,10 @@
-export class EddlManager extends EventTarget {
+export class AnalyticsManager extends EventTarget {
   constructor() {
     super();
     // create a batch of events keyed by type
     this._messageQueue = new Map();
     this._listners = new Set();
-    this._eventListnerHandler = this.eddlEventHandler.bind(this);
+    this._eventListenerHandler = this.eventListenerHandler.bind(this);
     this.registerEventListener('click');
     this.scanEventMaps();
   }
@@ -20,12 +20,12 @@ export class EddlManager extends EventTarget {
 
   registerEventListener(eventname) {
     if (!this._listners.has(eventname)) {
-      document.addEventListener(eventname, this._eventListnerHandler);
+      document.addEventListener(eventname, this._eventListenerHandler);
       this._listners.add(eventname);
     }
   }
 
-  eddlEventHandler(e) {
+  eventListenerHandler(e) {
     // if there is already an event of this type in the queue then we'll debounce it.
     if (this._messageQueue.has(e.type)) return;
 
