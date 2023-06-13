@@ -42,7 +42,7 @@ export class EddlManager extends EventTarget {
 
     this._messageQueue.set(type, { type: e.type, tagName: e.target.tagName, attributes });
 
-    // using requestAnimationFrame allows us to allow DOM events to bulk collect
+    // using requestAnimationFrame allows DOM events to bulk collect
     // so that we can dudupe the click events from the delarative data-analytics-event-map
     // events.
     requestAnimationFrame(() => {
