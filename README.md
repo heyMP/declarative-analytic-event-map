@@ -33,18 +33,18 @@ that might need to record the events differently from page to page.
 
 ## Declarative
 
-AnalyticsManager allows site owners to place place data-attribute tags on tags to instruct the
+AnalyticsManager allows site owners to place data attributes on HTML elements to instruct the
 manager on how to collect custom events and their data.
 
-| Attribute                | Description                                                                                                                                         | Example              |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
-| data-analytics-event-map | Comma separated list of events to bind to. Include the `:` after the event name to merge the event to another simultaneous event such as a 'click'. | overlay-change:click |
-| data-analytics-data-map  | Comma separated list of data properties to retrieve from the event object. Data properties are defined as `[event-name]: [property-name]`.          | overlay-change:open  |
+| Attribute                | Description                                                                                                                                            | Example              |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| data-analytics-event-map | Comma separated list of events to listen for. Include the `:` after the event name to merge the event to another simultaneous event such as a 'click'. | overlay-change:click |
+| data-analytics-data-map  | Comma separated list of data properties to retrieve from the event object. Data properties are defined as `[event-name]: [property-name]`.             | overlay-change:open  |
 
 
 ### Event listners
 
-When instanciated, the AnalyticsManager manager will search for events to bind to by querying the DOM for
+When instantiated, the AnalyticsManager manager will search for events to bind to by querying the DOM for
 tags with containg the `data-analytics-event-map` attribute.
 
 For late arriving DOM elements, the `analyticsManager.scanEventMaps()` can be re-ran OR they can be manually
