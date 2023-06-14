@@ -4,7 +4,7 @@
 
 ## Diagram
 
-![](/assets/diagram.svg)
+![](/assets/image.png)
 
 ## Background
 
