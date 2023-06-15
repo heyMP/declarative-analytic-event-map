@@ -45,7 +45,7 @@ export class AnalyticsManager extends EventTarget {
         // create a fresh queue
         this._messageQueue = new Map();
 
-        // const mappedEvents = new Map();
+        // Map any events that were marked with the data-analytics-event-map attribute
         for (const [_, data] of queue) {
           const [sourceEvent, mappedEvent] = data.attributes?.get?.('data-analytics-event-map')?.split(':') ?? [];
           if (sourceEvent) {
