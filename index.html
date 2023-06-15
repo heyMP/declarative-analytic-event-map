@@ -12,14 +12,14 @@
 
 <body>
   <div data-analytics-region="secondary-navigation">
-    <rh-navigation-secondary role="navigation" data-analytics-event-map="overlay-change:click" data-analytics-data-map="overlay-change:open">
+    <rh-navigation-secondary role="navigation" data-analytics-event-map="overlay-change:click" data-analytics-data-map="overlay-change:open,data-analytics-linktype=dropdown">
       <a href="#" slot="logo" id="logo-id">
         Logo/Title
       </a>
       <ul slot="nav" aria-labelledby="logo-id">
         <li>
           <rh-navigation-secondary-dropdown>
-            <a href="#dropdown-fallback-url" slot="link" data-analytics-linktype="dropdown">Dropdown</a>
+            <a href="#dropdown-fallback-url" data-analytics-text="Products" data-analytics-category="Products" data-analytics-linktype="dropdown" slot="link">Products</a>
             <rh-navigation-secondary-menu slot="menu">
               <rh-navigation-secondary-menu-section>
                 <h3 slot="header">Section</h3>
