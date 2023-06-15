@@ -18,9 +18,9 @@ export class AnalyticsManager extends EventTarget {
     }
   }
 
-  registerEventListener(eventname) {
+  registerEventListener(eventname, target = document) {
     if (!this._listners.has(eventname)) {
-      document.addEventListener(eventname, this._eventListenerHandler);
+      target.addEventListener(eventname, this._eventListenerHandler);
       this._listners.add(eventname);
     }
   }
@@ -48,12 +48,14 @@ export class AnalyticsManager extends EventTarget {
         // Map any events that were marked with the data-analytics-event-map attribute
         for (const [_, data] of queue) {
           const [sourceEvent, mappedEvent] = data.attributes?.get?.('data-analytics-event-map')?.split(':') ?? [];
-          if (sourceEvent) {
+          if (sourceEvent && mappedEvent) {
             const mappedEventData = queue.get(mappedEvent);
-            // merge the source event data with the mapped event data
-            queue.set(mappedEvent, { ...mappedEventData, attributes: new Map([...mappedEventData.attributes, ...data.attributes])});
-            // delete the original event
-            queue.delete(sourceEvent);
+            if (mappedEventData) {
+              // merge the source event data with the mapped event data
+              queue.set(mappedEvent, { ...mappedEventData, attributes: new Map([...mappedEventData.attributes, ...data.attributes])});
+              // delete the original event
+              queue.delete(sourceEvent);
+            }
           }
         }
 
@@ -96,8 +98,14 @@ function extractAnalyticAttributesFromEvent(event) {
           if (eventType === event.type) {
             // the name of the data properties are specified as a
             // comma separated list
-            for (let name of dataNames.split(',')) {
-              attributes.set(name, event[name]);
+            const dataNamesArry = dataNames.split(',');
+            for (let [name, defaultValue] of dataNames.split(',').map(i => i.split('='))) {
+              if (defaultValue) {
+                attributes.set(name, defaultValue);
+              }
+              else {
+                attributes.set(name, event[name]);
+              }
             }
           }
         }
